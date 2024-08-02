@@ -1,34 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { Credentials } from '../../shared/models/credentials.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+        import { AuthService } from '../services/auth.service';
+        import { Credentials } from '../../shared/models/credentials.model';
+        import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-@Component({
-    templateUrl: './login.component.html',
-    selector: 'button-loading-demo',
-})
-export class LoginComponent implements OnInit {
+        @Component({
+            templateUrl: './login.component.html',
+            selector: 'button-loading-demo',
+        })
+        export class LoginComponent implements OnInit {
 
-    loading: boolean = false;
-    loginForm!: FormGroup;
+            loading: boolean = false;
+            loginForm!: FormGroup;
 
-    constructor(private authService: AuthService) {}
+            constructor(private authService: AuthService) {}
 
-    ngOnInit() {
-        this.authService.deleteCookies();
-        this.loginForm = new FormGroup({
-            email: new FormControl('', [Validators.required]),
-            password: new FormControl('', [Validators.required]),
-        });
-    }
+            ngOnInit() {
+                this.authService.deleteCookies();
+                this.loginForm = new FormGroup({
+                    email: new FormControl('', [Validators.required]),
+                    password: new FormControl('', [Validators.required]),
+                });
+            }
 
-    submit() {
-        this.loading = true;
+            submit() {
+                this.loading = true;
 
-        setTimeout(() => {
-            this.loading = false
-        }, 2000);
-        this.login();
+                setTimeout(() => {
+                    this.loading = false
+                }, 2000);
+                this.login();
     }
 
     get emailControl() {
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
             email: this.emailControl.value,
             password: this.passwordControl.value
         };
+        localStorage.setItem('userEmail', this.emailControl.value)
         this.authService.login(credentials);
     }
 
