@@ -1,0 +1,23 @@
+<p-dialog
+    header="Deseja realmente excluir seu usuário?"
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]=
+        "{
+            '900px': '20vw',
+            '600px': '80vw'
+        }"
+    [draggable]="false"
+    [resizable]="false">
+    <div>
+        <p-button
+            type="submit"
+            label="Excluir usuário"
+            [loading]="loading"
+            [style]="{display: 'grid', width: '100%'}"
+            class="mt-4"
+            (click)="deleteAccount()">
+        </p-button>
+    </div>
+</p-dialog>
+

@@ -1,0 +1,53 @@
+<div class="card">
+    <span class="text-900 text-xl font-bold mb-5 block">Edite os dados do seu perfil</span>
+    <div class="grid">
+        <div class="col-12 lg:col-2">
+            <p class="m-0 p-0 text-600 line-height-3 mr-3">Sempre mantenha seus dados atualizados para que possamos sempre estar em contato.</p>
+        </div>
+        <form [formGroup]="userForm" class="col-12 lg:col-10">
+            <div class="grid formgrid p-fluid">
+                <div class="mb-5 col-12 md:col-6 field p-float-label">
+                    <input id="name" type="text" pInputText formControlName="name">
+                    <label for="name" class="font-medium text-900 pl-3">Nome completo</label>
+                </div>
+                <div class="mb-5 col-12 md:col-6 field p-float-label">
+                    <input id="username" type="text" pInputText formControlName="username">
+                    <label for="username" class="font-medium text-900 pl-3">Username</label>
+                </div>
+                <div class="mb-5 col-12 md:col-6 field p-float-label">
+                    <input id="email" type="email" pInputText formControlName="email">
+                    <label for="email" class="font-medium text-900 pl-3">Email</label>
+                </div>
+
+                <div style="border: none;" class="mb-5 col-12 md:col-6 field p-float-label">
+                    <p-calendar pInputText
+                                id="birthday"
+                                name="birthday"
+                                type="date"
+                                class="flex pt-0 pb-0 pr-0 pl-0"
+                                dateFormat="dd/mm/yy"
+                                [style]="{'width': '100%', 'border-radius': '6px'}"
+                                [inputStyle]="{'border': 'none'}"
+                                [showIcon]="true"
+                                [touchUI]="true"
+                                inputId="icon"
+                                formControlName="birthday"
+                                dataType="string"
+                                [maxDate]="maxDate"
+                                [defaultDate]="maxDate">
+                    </p-calendar>
+                    <label for="birthday" class="font-medium text-900 pl-3">Data de Nascimento</label>
+                </div>
+            </div>
+            <div>
+                <p-button
+                    type="submit"
+                    label="Editar dados"
+                    [loading]="loading"
+                    class="w-auto mt-4"
+                    (onClick)="update()">
+                </p-button>
+            </div>
+        </form>
+    </div>
+</div>

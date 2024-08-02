@@ -1,0 +1,40 @@
+<form [formGroup]="loginForm" #formDir="ngForm"
+      class="h-screen w-screen flex align-items-center justify-content-center"
+      style="background: #1992D4"
+      [ngClass]="{'p-input-filled': filledInput}">
+
+    <div class="flex flex-column align-items-center">
+        <div class="surface-card py-5 px-5 sm:px-7 shadow-2 flex flex-column w-11 sm:w-30rem"
+             style="border-radius:14px">
+            <div class="flex align-items-start flex-column">
+                <h3 class="text-primary mb-4"><strong>Entrar</strong></h3>
+            </div>
+
+            <span class="p-input-icon-left mb-4">
+                <i class="pi pi-user"></i>
+                <input type="text"  pInputText placeholder="Email" id="email" name="email"
+                   formControlName="email" class="w-full surface-50">
+            </span>
+
+            <span class="p-input-icon-left mb-2">
+                <i class="pi pi-key"></i>
+                <input type="password" style="background-color: #f2f2f2;" pInputText placeholder="Senha" id="password" name="password"
+                   formControlName="password" class="w-full surface-50">
+            </span>
+            <a class="text-primary text-right mb-4" routerLink="/auth/user-type"><strong>Esqueci a senha</strong></a>
+            <div class="flex text-center justify-content-center">
+                <p-button label="ENTRAR"
+                    [disabled]="loginForm.invalid"
+                    [loading]="loading"
+                    (onClick)="submit()"
+                    (keyup.enter)="submit()"
+                    [style]="{'width': '95%', 'background': '#1992D4', 'border-radius': '10px'}"
+                    class="mb-4 w-full max-w-full">
+                </p-button>
+            </div>
+            <span class="text-color-secondary text-center mb-4 mt-4">Ainda não possui conta?
+                <a class="text-primary text-center mb-4 ml-2" routerLink="/auth/register"><strong>Cadastre-se</strong></a>
+            </span>
+        </div>
+    </div>
+</form>

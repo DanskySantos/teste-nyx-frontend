@@ -1,0 +1,63 @@
+<form [formGroup]="registerForm" #formDir="ngForm"
+      style="background: #1992D4"
+      class="h-screen w-screen flex align-items-center justify-content-center">
+    <div class="flex flex-column align-items-center">
+        <div class="surface-card py-5 px-5 sm:px-7 shadow-2 flex flex-column w-11 sm:w-9"
+             style="border-radius:14px">
+            <i class="pi pi-arrow-left absolute cursor-pointer" (click)="goBack()"
+               style="font-size: 1.5rem; color:var(--primary-color)"></i>
+            <div class="flex align-items-start flex-column mb-2 mt-6">
+                <h3 class="text-primary mb-5"><strong>Cadastro</strong></h3>
+            </div>
+            <div class="mb-4 field p-float-label w-full">
+                <input class="w-full surface-50" id="name" type="text" autocomplete="off" pInputText
+                       formControlName="name">
+                <label for="name" class="w-full font-medium text-base">Nome Completo</label>
+            </div>
+            <div class="mb-4 field p-float-label w-full">
+                <input class="w-full surface-50" id="email" type="text" autocomplete="off" pInputText
+                       formControlName="email">
+                <label for="email" class="w-full font-medium text-base">Email</label>
+            </div>
+            <div class="mb-4 field p-float-label w-full">
+                <input class="w-full surface-50" id="password" type="password" autocomplete="off" pInputText
+                       formControlName="password">
+                <label for="password" class="w-full font-medium text-base">Senha</label>
+            </div>
+            <div style="border: none;" class="mb-4 field p-float-label w-full">
+                <p-calendar pInputText
+                            id="birthday"
+                            name="birthday"
+                            type="date"
+                            class="flex pt-0 pb-0 pr-0 pl-0 w-full surface-50"
+                            dateFormat="dd/mm/yy"
+                            [style]="{'width': '100%', 'border-radius': '6px'}"
+                            [inputStyle]="{'border': 'none'}"
+                            [showIcon]="true"
+                            [touchUI]="true"
+                            inputId="icon"
+                            formControlName="birthday"
+                            dataType="string"
+                            [maxDate]="maxDate"
+                            [defaultDate]="maxDate">
+                </p-calendar>
+                <label for="birthday" class="w-full font-medium text-base">Data de Nascimento</label>
+            </div>
+            <p-button type="submit"
+                      (click)="submit()"
+                      (keyup.enter)="submit()"
+                      [disabled]="registerForm.invalid"
+                      label="CRIAR CONTA"
+                      [loading]="loading"
+                      [style]="{'width': '100%', 'border-radius': '10px'}"
+                      class="mb-4 w-full max-w-full">
+            </p-button>
+            <span class="text-color-secondary text-center mb-4">Ao criar a conta você concorda com os nossos
+            <a class="text-primary text-center mb-4"
+               target="_blank"
+               href="https://www.google.com"><strong>Termos de uso</strong>
+            </a>
+        </span>
+        </div>
+    </div>
+</form>
